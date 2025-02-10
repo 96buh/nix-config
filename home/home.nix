@@ -14,10 +14,10 @@
   #   recursive = true;   # link recursively
   #   executable = true;  # make all files executable
   # };
-  home.file.".config/alacritty" = {
-    source = ./.config/alacritty;
-    recursive = true;
-  };
+  #home.file.".config/alacritty" = {
+  #  source = ./.config/alacritty;
+  #  recursive = true;
+  #};
   home.file.".config/gh" = {
     source = ./.config/gh;
     recursive = true;
@@ -41,12 +41,16 @@
   home.packages = with pkgs; [
   ];
 
+  # 設定
+  programs = {
+    alacritty = import ./alacritty.nix; 
+  };
   # basic configuration of git, please change to your own
-#  programs.git = {
-#    enable = true;
-#    userName = "Ryan Yin";
-#    userEmail = "xiaoyin_c@qq.com";
-#  };
+ # programs.git = {
+ #   enable = true;
+ #   userName = "Homer";
+ #   userEmail = "j29823678@gmail.com";
+ # };
 
 
   # alacritty - a cross-platform, GPU-accelerated terminal emulator
