@@ -14,10 +14,6 @@
   #   recursive = true;   # link recursively
   #   executable = true;  # make all files executable
   # };
-  #home.file.".config/alacritty" = {
-  #  source = ./.config/alacritty;
-  #  recursive = true;
-  #};
   home.file.".config/gh" = {
     source = ./.config/gh;
     recursive = true;
@@ -36,40 +32,19 @@
   #     xxx
   # '';
 
-
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
   ];
 
   # 設定
   programs = {
-    alacritty = import ./alacritty.nix; 
+    alacritty = import ./alacritty.nix { inherit pkgs config; };
+    git = import ./git.nix { inherit pkgs config; };
   };
-  # basic configuration of git, please change to your own
- # programs.git = {
- #   enable = true;
- #   userName = "Homer";
- #   userEmail = "j29823678@gmail.com";
- # };
 
 
-  # alacritty - a cross-platform, GPU-accelerated terminal emulator
- # programs.alacritty = {
- #   enable = true;
- #   # custom settings
- #   settings = {
- #     env.TERM = "xterm-256color";
- #     font = {
- #       size = 12;
- #       draw_bold_text_with_bright_colors = true;
- #     };
- #    scrolling.multiplier = 5;
- #    selection.save_to_clipboard = true;
- #  };
- # };
 
   home.stateVersion = "24.11";
-
   # Let home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

@@ -1,11 +1,13 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 
 {
   enable = true;
 
   settings = {
     font = {
-      size = 24;
+      size = 20;
+
+      normal.family = "JetBrainsMono Nerd Font Mono";
     };
 
     window = {
@@ -15,9 +17,16 @@
       };
       decorations = "Buttonless";
     };
+    
+    general = {
+      import = [ pkgs.alacritty-theme.gruvbox_dark ];
+      live_config_reload = true;
+    };
+
+    env = {
+      TERM = "xterm-256color";
+    };
+
   };
 
-  env = {
-    TERM = "xterm-256color";
-  };
 }
