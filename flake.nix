@@ -16,9 +16,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    alacritty-theme = {
+      url = "github:alexghr/alacritty-theme.nix";
+    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, ... }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, alacritty-theme, ... }:
 
   let
       targetSystem = "aarch64-darwin";
@@ -38,6 +41,10 @@
       modules = [
 	configuration
 	./host/darwin
+	({ config, pkgs, ...}: {
+          # install the overlay
+          nixpkgs.overlays = [ alacritty-theme.overlays.default ];
+        })
 	home-manager.darwinModules.home-manager
         {
             home-manager.useGlobalPkgs = true;

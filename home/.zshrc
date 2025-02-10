@@ -75,4 +75,6 @@ alias c='clear'
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
+export LANG=en_US.UTF-8
 export PATH=/Library/TeX/texbin:$PATH
+

@@ -2,6 +2,6 @@
 
 {
   enable = true;
-  userName = "buh";
+  userName = "Homer";
   userEmail = "j29823678@gmail.com";
 }
