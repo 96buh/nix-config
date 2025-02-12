@@ -19,9 +19,14 @@
     alacritty-theme = {
       url = "github:alexghr/alacritty-theme.nix";
     };
+    # neovim
+    nvf = {
+      url = "github:notashelf/nvf";
+            #inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, alacritty-theme, ... }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, alacritty-theme, nvf, ... }:
 
   let
       targetSystem = "aarch64-darwin";
@@ -49,7 +54,13 @@
         {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.homer = import ./home/home.nix;
+            #home-manager.users.homer = import ./home/home.nix;
+	    home-manager.users.homer = {
+              imports = [
+                nvf.homeManagerModules.default  # 從 nvf 載入模組
+                ./home/home.nix                 # 你的個人配置
+              ];
+	    };
 	    home-manager.backupFileExtension = "backup";
 
             # Optionally, use home-manager.extraSpecialArgs to pass
@@ -65,7 +76,7 @@
 
 	    autoMigrate = true;
 	  };
-	}
+	 }
       ];
       specialArgs = { inherit inputs; };
     };

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, nixivm, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   home.username = "homer";
@@ -14,10 +14,6 @@
   #   recursive = true;   # link recursively
   #   executable = true;  # make all files executable
   # };
-  home.file.".config/gh" = {
-    source = ./.config/gh;
-    recursive = true;
-  };
   home.file.".config/ohmyposh" = {
     source = ./.config/ohmyposh;
     recursive = true;
@@ -36,7 +32,7 @@
   programs = {
     alacritty = import ./alacritty.nix { inherit pkgs config; };
     git = import ./git.nix { inherit pkgs config; };
-    neovim = import ./neovim.nix { inherit pkgs config; };
+    nvf = import ./neovim.nix;
     #nvf = import ./nvim.nix { inherit pkgs config lib; };
   };
 
