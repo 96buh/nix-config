@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, nixivm, ... }:
 
 {
   home.username = "homer";
@@ -18,10 +18,6 @@
     source = ./.config/gh;
     recursive = true;
   };
-  home.file.".config/nvim" = {
-    source = ./.config/nvim;
-    recursive = true;
-  };
   home.file.".config/ohmyposh" = {
     source = ./.config/ohmyposh;
     recursive = true;
@@ -33,15 +29,16 @@
   # '';
 
   # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [
-  ];
+    #home.packages = with pkgs; [
+    #];
 
   # 設定
   programs = {
     alacritty = import ./alacritty.nix { inherit pkgs config; };
     git = import ./git.nix { inherit pkgs config; };
+    neovim = import ./neovim.nix { inherit pkgs config; };
+    #nvf = import ./nvim.nix { inherit pkgs config lib; };
   };
-
 
 
   home.stateVersion = "24.11";
