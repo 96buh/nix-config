@@ -5,7 +5,7 @@
 
   settings = {
     font = {
-      size = 20;
+      size = 18;
 
       normal.family = "JetBrainsMono Nerd Font Mono";
     };
@@ -16,6 +16,7 @@
 	y = 10;
       };
       decorations = "Buttonless";
+      option_as_alt = "Both";
     };
     
     general = {
