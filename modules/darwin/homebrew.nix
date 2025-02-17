@@ -2,18 +2,22 @@
 {
   homebrew = {
     enable = true;
+    # App Store Apps, use `mas search "App Name"` to find app ID
+    # masApps = {
+    #     "Microsoft Word" = 462054704;
+    # };
     brews = [
-      # search app id in app store
-      "mas"
+      "mas" # search app ID
       # latexindent
       "perl"
       "cpanm"
+      "ripgrep"
     ];
+    # GUI Apps
     casks = [
       "obsidian"
       "zotero"
       "visual-studio-code"
-      "alacritty"
       "raycast"
       "zen-browser"
       "discord"

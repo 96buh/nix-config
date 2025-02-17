@@ -5,7 +5,7 @@
 
   settings = {
     font = {
-      size = 18;
+      size = 20;
 
       normal.family = "JetBrainsMono Nerd Font Mono";
     };
@@ -13,8 +13,9 @@
     window = {
       padding = {
         x = 10;
-	y = 10;
+	    y = 10;
       };
+
       decorations = "Buttonless";
       option_as_alt = "Both";
     };
