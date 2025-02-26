@@ -19,6 +19,9 @@
       "zotero"
       "visual-studio-code"
       "raycast"
+      # "alacritty"
+      # terminal
+      "ghostty"
       "zen-browser"
       "discord"
       "spotify"
@@ -28,6 +31,8 @@
       "karabiner-elements"
       # menu bar manager
       "jordanbaird-ice"
+      # pdf reader 
+      "skim"
     ];
     onActivation = {
       autoUpdate = true;

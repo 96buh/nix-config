@@ -7,7 +7,7 @@
     font = {
       size = 20;
 
-      normal.family = "JetBrainsMono Nerd Font Mono";
+      normal.family = "JetBrainsMono Nerd Font";
     };
 
     window = {

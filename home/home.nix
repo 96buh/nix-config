@@ -32,7 +32,6 @@
   programs = {
     alacritty = import ./alacritty.nix { inherit pkgs config; };
     git = import ./git.nix { inherit pkgs config; };
-    #nvf = import ./neovim.nix;
     tmux = import ./tmux.nix { inherit pkgs; };
   };
 

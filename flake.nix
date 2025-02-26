@@ -19,14 +19,9 @@
     alacritty-theme = {
       url = "github:alexghr/alacritty-theme.nix";
     };
-    # neovim
-    nvf = {
-      url = "github:notashelf/nvf";
-            #inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, alacritty-theme, nvf, ... }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, alacritty-theme, ... }:
 
   let
       targetSystem = "aarch64-darwin";
@@ -44,39 +39,38 @@
     # $ darwin-rebuild build --flake .#macbookpro
     darwinConfigurations."macbookpro" = nix-darwin.lib.darwinSystem {
       modules = [
-	configuration
-	./host/darwin
-	({ config, pkgs, ...}: {
+        configuration
+        ./host/darwin
+        ({ config, pkgs, ...}: {
           # install the overlay
           nixpkgs.overlays = [ alacritty-theme.overlays.default ];
         })
-	home-manager.darwinModules.home-manager
+        home-manager.darwinModules.home-manager
         {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             #home-manager.users.homer = import ./home/home.nix;
-	    home-manager.users.homer = {
-              imports = [
-                nvf.homeManagerModules.default  # 從 nvf 載入模組
-                ./home/home.nix                 # 你的個人配置
-              ];
-	    };
-	    home-manager.backupFileExtension = "backup";
+            home-manager.users.homer = {
+                  imports = [
+                    ./home/home.nix                 # 你的個人配置
+                  ];
+            };
+            home-manager.backupFileExtension = "backup";
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
         }
       	nix-homebrew.darwinModules.nix-homebrew
-	{
-	  nix-homebrew = {
-	    enable = true;
-	    # Apple Scilicon Only
-	    enableRosetta = true;
-	    user = "homer";
+        {
+          nix-homebrew = {
+            enable = true;
+            # Apple Scilicon Only
+            enableRosetta = true;
+            user = "homer";
 
-	    autoMigrate = true;
-	  };
-	 }
+            autoMigrate = true;
+          };
+         }
       ];
       specialArgs = { inherit inputs; };
     };

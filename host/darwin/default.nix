@@ -8,6 +8,9 @@
 
   environment.systemPackages = import ../../modules/shared/packages.nix { pkgs = pkgs; };
 
+  environment.darwinConfig = "$HOME/.dotfiles/configuration.nix";
+
+  system.stateVersion = 6;
   system.defaults = {
     dock = {
       autohide = true;
@@ -15,7 +18,8 @@
       autohide-time-modifier = 0.2;
       # Apps in the dock
       persistent-apps = [
-        "/Applications/Alacritty.app"
+        # "/Applications/Alacritty.app"
+        "/Applications/Ghostty.app"
         "/Applications/Obsidian.app"
         "/Applications/Zen Browser.app"
         "/Applications/Visual Studio Code.app"
