@@ -21,5 +21,12 @@ with pkgs;
     fastfetch
     # Nodejs
     nodejs
+
+    go
+    lua
+    # file manager
+    yazi
+    # java
+    jdk17
 ]
 
