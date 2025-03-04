@@ -85,6 +85,15 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    eval "$(ssh-agent -s)" > /dev/null
+fi
+
+SSH_KEY="$HOME/.ssh/id_rsa"  
+if ! ssh-add -l | grep -q "$(ssh-keygen -lf $SSH_KEY | awk '{print $2}')"; then
+    ssh-add $SSH_KEY > /dev/null 2>&1
+fi
+
 export LANG=en_US.UTF-8
 export PATH=/Library/TeX/texbin:$PATH
 
