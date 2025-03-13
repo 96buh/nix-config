@@ -18,7 +18,6 @@
       autohide-time-modifier = 0.2;
       # Apps in the dock
       persistent-apps = [
-        # "/Applications/Alacritty.app"
         "/Applications/Ghostty.app"
         "/Applications/Obsidian.app"
         "/Applications/Zen Browser.app"
@@ -49,7 +48,8 @@
   };
 
   # Enable sudo authentication with Touch ID
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
+  security.pam.services.sudo_local.reattach = true;
 
   # app settings
   system.defaults.CustomUserPreferences = {

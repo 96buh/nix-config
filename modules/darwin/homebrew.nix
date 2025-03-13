@@ -19,8 +19,7 @@
       "zotero"
       "visual-studio-code"
       "raycast"
-      # "alacritty"
-      # terminal
+
       "ghostty"
       "zen-browser"
       "discord"
@@ -33,6 +32,10 @@
       "jordanbaird-ice"
       # pdf reader 
       "skim"
+      # minecraft launcher 
+      "prismlauncher"
+      
+      "android-studio"
     ];
     onActivation = {
       autoUpdate = true;

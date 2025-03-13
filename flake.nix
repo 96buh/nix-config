@@ -6,7 +6,7 @@
       url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     };
     nix-darwin = {
-      url = "github:LnL7/nix-darwin/master";
+      url = "github:LnL7/nix-darwin?rev=d06cf700ee589527fde4bd9b91f899e7137c05a6";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-homebrew = {
@@ -16,12 +16,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    alacritty-theme = {
-      url = "github:alexghr/alacritty-theme.nix";
-    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, alacritty-theme, ... }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, ... }:
 
   let
       targetSystem = "aarch64-darwin";
@@ -41,20 +38,16 @@
       modules = [
         configuration
         ./host/darwin
-        ({ config, pkgs, ...}: {
-          # install the overlay
-          nixpkgs.overlays = [ alacritty-theme.overlays.default ];
-        })
         home-manager.darwinModules.home-manager
         {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            #home-manager.users.homer = import ./home/home.nix;
-            home-manager.users.homer = {
-                  imports = [
-                    ./home/home.nix                 # 你的個人配置
-                  ];
-            };
+            home-manager.users.homer = import ./home/home.nix;
+            # home-manager.users.homer = {
+            #       imports = [
+            #         ./home/home.nix               
+            #       ];
+            # };
             home-manager.backupFileExtension = "backup";
 
             # Optionally, use home-manager.extraSpecialArgs to pass
@@ -64,7 +57,6 @@
         {
           nix-homebrew = {
             enable = true;
-            # Apple Scilicon Only
             enableRosetta = true;
             user = "homer";
 

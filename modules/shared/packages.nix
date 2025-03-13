@@ -21,6 +21,7 @@ with pkgs;
     fastfetch
     # Nodejs
     nodejs
+    nodePackages.eas-cli
 
     go
     lua
@@ -28,5 +29,9 @@ with pkgs;
     yazi
     # java
     jdk17
+    ruby
+    yt-dlp # download youtube videos 
+
+    pandoc
 ]
 

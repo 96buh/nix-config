@@ -30,7 +30,7 @@
 
   # 設定
   programs = {
-    alacritty = import ./alacritty.nix { inherit pkgs config; };
+    # alacritty = import ./alacritty.nix { inherit pkgs config; };
     git = import ./git.nix { inherit pkgs config; };
     tmux = import ./tmux.nix { inherit pkgs; };
   };
