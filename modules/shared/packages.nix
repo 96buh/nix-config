@@ -13,8 +13,8 @@ with pkgs;
     # Github
     gh
 
-    fswatch
-    choose-gui
+    # fswatch
+    # choose-gui
     # Python
     python312
     python312Packages.pip
@@ -22,6 +22,7 @@ with pkgs;
     # Nodejs
     nodejs
     nodePackages.eas-cli
+    supabase-cli # interact with supabase
 
     go
     lua

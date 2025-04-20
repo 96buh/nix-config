@@ -56,6 +56,9 @@
     "com.microsoft.VSCode" = {
       ApplePressAndHoldEnabled = false; 
     };
+    "com.jetbrains.intellij" = {
+      ApplePressAndHoldEnabled = false; 
+    };
   };
 }
 

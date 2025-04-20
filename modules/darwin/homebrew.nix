@@ -12,6 +12,7 @@
       "perl"
       "cpanm"
       "ripgrep"
+      "cocoapods"
     ];
     # GUI Apps
     casks = [
@@ -28,14 +29,14 @@
       # inkscape shortcut
       "hammerspoon"
       "karabiner-elements"
-      # menu bar manager
-      "jordanbaird-ice"
-      # pdf reader 
-      "skim"
+      "jordanbaird-ice" # menu bar
+      "skim" # pdf reader
       # minecraft launcher 
       "prismlauncher"
       
       "android-studio"
+      "intellij-idea"
+      "anki"
     ];
     onActivation = {
       autoUpdate = true;
