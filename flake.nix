@@ -22,12 +22,20 @@
 
   let
       targetSystem = "aarch64-darwin";
+      targetSystemNixOS = "x86_64-linux";
 
       configuration = import ./configuration.nix {
         config = {};
         self = self;
         nixpkgs = nixpkgs;
         targetSystem = targetSystem;
+      };
+      
+      nixosConfiguration = import ./configuration.nix {
+        config = {};
+        self = self;
+        nixpkgs = nixpkgs;
+        targetSystem = targetSystemNixOS;
       };
   in
   {
@@ -63,6 +71,21 @@
             autoMigrate = true;
           };
          }
+      ];
+      specialArgs = { inherit inputs; };
+    };
+    
+    nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux"; 
+      modules = [
+        nixosConfiguration
+        ./host/nixos
+        home-manager.nixosModules.home-manager
+        {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.homer = import ./home/home.nix;
+        }
       ];
       specialArgs = { inherit inputs; };
     };
