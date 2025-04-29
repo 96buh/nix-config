@@ -29,17 +29,13 @@
   services.printing.enable = true;
   hardware.bluetooth.enable = true;
   hardware.pulseaudio.enable = false;
-  security.rkit.enable = true;
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
-
-  # Allow unfree apps
-  nixpkgs.config.allowUnfree = true;
 
   # 使用 zsh 當作預設 shell
   programs.zsh.enable = true;
@@ -50,11 +46,6 @@
 
   # 啟用openssh
   services.openssh.enable = true;
-
-  # Nix 設定
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true;
-
 
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;

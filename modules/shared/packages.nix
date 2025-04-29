@@ -2,7 +2,7 @@
 with pkgs;
 [
     neovim
-    mkalias
+    # mkalias
     tmux
     fzf
     zoxide

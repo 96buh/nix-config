@@ -1,8 +1,12 @@
 { config, pkgs, lib, ... }:
 
-{
+let 
+  isDarwin = pkgs.stdenv.isDarwin;
+in {
   home.username = "homer";
-  home.homeDirectory = lib.mkForce "/Users/homer";
+  home.homeDirectory = lib.mkForce(
+    if isDarwin then "/Users/homer" else "/home/homer"
+  );
 
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
