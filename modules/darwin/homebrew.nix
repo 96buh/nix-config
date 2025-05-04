@@ -20,6 +20,7 @@
       "zotero"
       "visual-studio-code"
       "raycast"
+      "anki"
 
       "ghostty"
       "zen-browser"
@@ -31,12 +32,12 @@
       "karabiner-elements"
       "jordanbaird-ice" # menu bar
       "skim" # pdf reader
-      # minecraft launcher 
-      "prismlauncher"
+      "prismlauncher" # minecraft launcher
       
       "android-studio"
       "intellij-idea"
-      "anki"
+      "pycharm"
+      "latexit"
     ];
     onActivation = {
       autoUpdate = true;
