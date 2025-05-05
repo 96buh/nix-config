@@ -9,6 +9,7 @@ with pkgs;
     oh-my-posh
     tree
     pdf2svg
+    fastfetch
 
     # Github
     gh
@@ -18,7 +19,7 @@ with pkgs;
     # Python
     python312
     python312Packages.pip
-    fastfetch
+    uv
     # Nodejs
     nodejs
     nodePackages.eas-cli

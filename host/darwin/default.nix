@@ -47,6 +47,11 @@
     WindowManager.StandardHideDesktopIcons = true;
   };
 
+    system.keyboard = {
+        enableKeyMapping = true;
+        remapCapsLockToEscape = true;
+    };
+
   # Enable sudo authentication with Touch ID
   security.pam.services.sudo_local.touchIdAuth = true;
   security.pam.services.sudo_local.reattach = true;
