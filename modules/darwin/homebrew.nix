@@ -23,7 +23,7 @@
       "anki"
 
       "ghostty"
-      "zen-browser"
+      "zen"
       "discord"
       "spotify"
       "inkscape"

@@ -20,7 +20,7 @@
       persistent-apps = [
         "/Applications/Ghostty.app"
         "/Applications/Obsidian.app"
-        "/Applications/Zen Browser.app"
+        "/Applications/Zen.app"
         "/Applications/Visual Studio Code.app"
       ];
       show-recents = false;
