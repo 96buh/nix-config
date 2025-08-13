@@ -8,11 +8,12 @@
     # };
     brews = [
       "mas" # search app ID
-      # latexindent
       "perl"
       "cpanm"
       "ripgrep"
       "cocoapods"
+      "cmake"
+      # "freetype"
     ];
     # GUI Apps
     casks = [
@@ -26,10 +27,10 @@
       "zen"
       "discord"
       "spotify"
-      "inkscape"
       # inkscape shortcut
-      "hammerspoon"
-      "karabiner-elements"
+      # "inkscape"
+      # "hammerspoon"
+      # "karabiner-elements"
       "jordanbaird-ice" # menu bar
       "skim" # pdf reader
       "prismlauncher" # minecraft launcher
@@ -38,6 +39,7 @@
       "intellij-idea"
       "pycharm"
       "latexit"
+      "steam"
     ];
     onActivation = {
       autoUpdate = true;

@@ -21,7 +21,6 @@
         "/Applications/Ghostty.app"
         "/Applications/Obsidian.app"
         "/Applications/Zen.app"
-        "/Applications/Visual Studio Code.app"
       ];
       show-recents = false;
       orientation = "bottom";
