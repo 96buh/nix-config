@@ -30,10 +30,10 @@
       # inkscape shortcut
       # "inkscape"
       # "hammerspoon"
-      # "karabiner-elements"
-      "jordanbaird-ice" # menu bar
-      "skim" # pdf reader
-      "prismlauncher" # minecraft launcher
+      "karabiner-elements" # keyboard remap
+      "jordanbaird-ice"    # menu bar
+      "skim"               # pdf reader
+      "prismlauncher"      # minecraft launcher
       
       "android-studio"
       "intellij-idea"
