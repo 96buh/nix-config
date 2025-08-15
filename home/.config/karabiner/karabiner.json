@@ -8,6 +8,24 @@
     {
       "name": "Default",
       "selected": true,
+
+      "virtual_hid_keyboard": {
+        "keyboard_type": "ansi"
+      },
+
+      "devices": [
+        {
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": true,
+            "product_id": 591,
+            "vendor_id": 1452
+          },
+          "ignore": false,
+          "treat_as_built_in_keyboard": true
+        }
+      ],
+
       "complex_modifications": {
         "rules": [
           {
