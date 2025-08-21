@@ -8,6 +8,8 @@ in
     home = if targetSystem == "x86_64-linux" then "/home/homer" else "/Users/homer";
   };
 
+  system.primaryUser = "homer";
+
   # environment.darwinConfig = "$HOME/.dotfiles/configuration.nix";
   # 基本 Nix 配置
   nixpkgs.config.allowUnfree = true;
