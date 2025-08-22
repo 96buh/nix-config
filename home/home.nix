@@ -28,6 +28,15 @@ in {
     recursive = true;
   };
 
+  home.file.".config/ghostty/config".text = ''
+    font-size = 20
+    macos-option-as-alt = true
+    theme = dark:GruvboxDark,light:GruvboxLight
+    window-padding-x = 10
+    window-padding-y = 5
+    macos-titlebar-style = "hidden"
+  '';
+
   # encode the file content in nix configuration file directly
   # home.file.".xxx".text = ''
   #     xxx
