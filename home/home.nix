@@ -16,6 +16,11 @@ in {
     executable = true;
   };
 
+  home.file.".config/tmux-sessionizer" = {
+    source = ./.config/tmux-sessionizer;
+    recursive = true;
+  };
+
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
   home.file.".zshrc".source = ./.zshrc;

@@ -32,6 +32,6 @@
         set -g @continuum-restore 'on'
         set -g @continuum-save-interval '15'
 
-        bind-key s display-popup -E "tmux-sessionizer" 
+        bind-key -r f run-shell "tmux neww ~/.local/bin/tmux-sessionizer"
     '';
 }
