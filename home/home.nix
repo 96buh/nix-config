@@ -8,6 +8,14 @@ in {
     if isDarwin then "/Users/homer" else "/home/homer"
   );
 
+
+  home.sessionPath = [ "$HOME/.local/bin" ];
+
+  home.file.".local/bin/tmux-sessionizer" = {
+    source = ./scripts/tmux-sessionizer;
+    executable = true;
+  };
+
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
   home.file.".zshrc".source = ./.zshrc;
