@@ -1,4 +1,6 @@
-if [[ -f "/opt/homebrew/bin/brew" ]] then
+export PATH="$HOME/.local/bin:$PATH"
+
+if [[ -f "/opt/homebrew/bin/brew" ]]; then
   # If you're using macOS, you'll want this enabled
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
@@ -45,6 +47,7 @@ bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
+bindkey -s ^f "tmux-sessionizer\n"
 
 # History
 HISTSIZE=5000
