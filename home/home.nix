@@ -42,7 +42,7 @@ in {
   };
 
   home.file.".config/aerospace" = {
-    source = ./config/aerospace;
+    source = ./.config/aerospace;
     recursive = true;
   };
 
