@@ -41,6 +41,11 @@ in {
     recursive = true;
   };
 
+  home.file.".config/aerospace" = {
+    source = ./config/aerospace;
+    recursive = true;
+  };
+
   home.file.".config/ghostty/config".text = ''
     font-size = 20
     macos-option-as-alt = true

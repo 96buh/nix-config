@@ -33,6 +33,7 @@
       "karabiner-elements" # keyboard remap
       "jordanbaird-ice"    # menu bar
       "skim"               # pdf reader
+      "nikitabobko/tap/aerospace" # window manager
       "prismlauncher"      # minecraft launcher
       
       "android-studio"
