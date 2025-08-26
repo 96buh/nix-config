@@ -6,6 +6,7 @@ with pkgs;
     tmux
     fzf
     zoxide
+    fd
     oh-my-posh
     tree
     pdf2svg
