@@ -15,22 +15,11 @@ fi
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
-
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
-
-# Add in snippets
-zinit snippet OMZL::git.zsh
-zinit snippet OMZP::git
-zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
-zinit snippet OMZP::aws
-zinit snippet OMZP::kubectl
-zinit snippet OMZP::kubectx
-zinit snippet OMZP::command-not-found
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -66,14 +55,31 @@ setopt hist_find_no_dups
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --group-directories-first --icons=always --color=always $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza --group-directories-first --icons=always --color=always $realpath'
+
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+
+export FZF_CTRL_T_OPTS="
+  --preview '
+    if [ -d {} ]; then
+      eza -T --color=always --icons=always {} | head -200
+    else
+      bat --style=numbers --color=always --line-range :500 {} 2>/dev/null
+    fi
+  '
+"
+export FZF_ALT_C_OPTS="--preview 'eza -T --icons=always --color=always {} | head -200'"
 
 # Aliases
-alias ls='ls --color'
+alias ls='eza --group-directories-first --icons=always --no-user'
+# options: --no-filesize, --no-time, --no-permissions
+alias lsa='eza --group-directories-first --icons=always -a --long'
 alias vim='nvim'
 alias c='clear'
-alias tree='tree -C'
+alias tree='eza -Ta --git-ignore --group-directories-first --level=3'
 
 # Shell integrations
 eval "$(fzf --zsh)"

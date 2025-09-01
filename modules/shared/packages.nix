@@ -8,9 +8,10 @@ with pkgs;
     zoxide
     fd
     oh-my-posh
-    tree
     pdf2svg
     fastfetch
+    eza
+    bat
 
     # Github
     gh
@@ -36,5 +37,6 @@ with pkgs;
     yt-dlp # download youtube videos 
 
     pandoc
+    typst
 ]
 
